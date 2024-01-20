@@ -1,0 +1,37 @@
+form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input{
+        width: 362.85px;
+        height: 37.29px;
+        border-radius: 10.04px;
+        outline: none;
+        border: 0.84px solid #1F74B3;
+        padding: 14.22px 19.24px 14.22px 19.24px;
+        background-color: #e6f4ff;
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #1F74B3;
+        }
+    }
+
+
+
+    button{
+        border: none;
+        height: 37.65px;
+        border-radius: 10.04px;
+        padding: 9.2px 18.4px 9.2px 18.4px;
+        background-color: #1F74B3;
+        color: #FFFFFF;
+        font-size: 13.38px;
+        font-weight: 600;
+        line-height: 16.73px;
+    }
+    
+}
