@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { TodoService } from '../../todo.service';
 
 @Component({
@@ -10,12 +10,9 @@ import { TodoService } from '../../todo.service';
 })
 export class TaskFormComponent {
 
-  @ViewChild('label') label!: ElementRef<HTMLInputElement>;
-
   constructor(private _todoService: TodoService) {}
 
   addTask(text: string): void {
-    this.label.nativeElement.value = '';
     if (text) {
       this._todoService.addTodo({done: false, text});
     }

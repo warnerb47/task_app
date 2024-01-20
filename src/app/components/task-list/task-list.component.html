@@ -4,12 +4,12 @@
             @for (todo of obs.data; track todo) {
                 <app-task [todo]="todo" (onDelete)="deleteTodo($event)"/>
             } @empty {
-                No tasks
+                <div class="info">No tasks</div>
             }
         } @else if(obs.loading) {
-            loading ...
+            <div class="info">loading ...</div>
         } @else if(obs.error) {
-            error
+            <div class="info">error</div>
         }
     }
 </div>
