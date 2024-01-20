@@ -1,0 +1,29 @@
+main {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    width: 533px;
+    height: 382.68px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px 50px 30px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #1F74B3;
+        border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #FFFFFF;
+    }
+
+    &>*+* {
+        margin-top: 30px;
+    }
+
+}
+
