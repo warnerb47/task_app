@@ -1,43 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TaskComponent } from '../task/task.component';
 import { Observable, of } from 'rxjs';
 import { Todo } from '../../core/interfaces/todo';
 import { CommonModule } from '@angular/common';
+import { TodoService } from '../../todo.service';
+import { WithLoadingPipe } from '../../core/pipe/with-loading.pipe';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [ CommonModule, TaskComponent ],
+  imports: [ CommonModule, TaskComponent, WithLoadingPipe ],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })
-export class TaskListComponent {
+export class TaskListComponent implements OnInit {
 
-  todos: Todo[] = [
-    { done: true, text: 'Install Dependencies' },
-    { done: false, text: 'Product Feature' },
-    { done: false, text: 'Write Unit test' },
-    { done: false, text: 'Deploy app' },
-  ];
+  todos$!: Observable<Todo[]>;
 
-  todos$: Observable<Todo[]> = of(this.todos);
+  constructor(private _todoService: TodoService) {}
 
-  loadTodos(): void {
-    this.todos$ = this.fetchTodos();
+  ngOnInit(): void {
+    this.loadTodos();
   }
 
-  fetchTodos(): Observable<Todo[]> {
-    return of([]);
+  loadTodos(): void {
+    this.todos$ = this._todoService.todos$;
   }
 
   onDeleteTodo(payload: Todo): void {
-    console.log(payload);
-    const data = this.todos;
-    const index = data.findIndex(d => d.text === payload.text);
-    if (index !== -1) {
-        data.splice(index, 1);
-        this.todos = data;
-    }
+    this._todoService.deleteTodo(payload);
   }
 
 }

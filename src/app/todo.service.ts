@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, delay, map } from 'rxjs';
 import { Todo } from './core/interfaces/todo';
 
 @Injectable({
@@ -7,10 +7,19 @@ import { Todo } from './core/interfaces/todo';
 })
 export class TodoService {
 
-  private _todos: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
+  private _todos: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([
+      { done: false, text: 'Install Dependencies' },
+      { done: false, text: 'Product Feature' },
+      { done: false, text: 'Write Unit test' },
+      { done: false, text: 'Deploy app' },
+  ]);
 
   get todos$(): Observable<Todo[]> {
-    return this._todos.asObservable();
+    return this._todos.asObservable()
+    .pipe(
+      delay(3000),
+      // map(d => {throw new Error('nasty')})
+    );
   }
 
   set todos(todos: Todo[]) {
