@@ -32,9 +32,9 @@ export class TodoService {
     this.todos = todos;
   }
   
-  updateTodo(payload: Todo): void {
+  updateTodo(former: Todo, payload: Todo): void {
     const data = this._todos.value;
-    const index = data.findIndex(d => d.text === payload.text);
+    const index = data.findIndex(d => d.text === former.text);
     if (index !== -1) {
         data[index] = payload;
         this.todos = data;

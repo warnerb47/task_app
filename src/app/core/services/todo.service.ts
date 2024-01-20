@@ -19,9 +19,9 @@ export class CoreTodoService {
   }
 
 
-  fetchTodo(id: string): Observable<Todo[]> {
+  fetchTodo(id: string): Observable<Todo> {
     const endpoint = '/todos';
-    return this._httpClient.get<Todo[]>(
+    return this._httpClient.get<Todo>(
       environment.url + endpoint + id
     );
   }
