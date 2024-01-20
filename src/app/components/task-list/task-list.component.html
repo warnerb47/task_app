@@ -1,15 +1,7 @@
 <div class="task-list">
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
-    <app-task />
+    @for (todo of todos; track todo) {
+        <app-task [todo]="todo" />
+    } @empty {
+        Empty list
+    }
 </div>

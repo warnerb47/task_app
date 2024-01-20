@@ -1,18 +1,30 @@
 <div class="task">
     <div class="start">
-        <svg class="checkbox checked" width="24" height="25" viewBox="0 0 24 25" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M2.75 6.90039C2.75 5.10546 4.20507 3.65039 6 3.65039H18C19.7949 3.65039 21.25 5.10547 21.25 6.90039V18.9004C21.25 20.6953 19.7949 22.1504 18 22.1504H6C4.20507 22.1504 2.75 20.6953 2.75 18.9004V6.90039Z"
-                fill="#1F74B3" />
-            <path
-                d="M2.75 6.90039C2.75 5.10546 4.20507 3.65039 6 3.65039H18C19.7949 3.65039 21.25 5.10547 21.25 6.90039V18.9004C21.25 20.6953 19.7949 22.1504 18 22.1504H6C4.20507 22.1504 2.75 20.6953 2.75 18.9004V6.90039Z"
-                stroke="#1F74B3" stroke-width="1.5" />
-            <path d="M17 9.90039L10.3295 15.9004L7 12.9004" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-        </svg>
+        @if (todo.done) {
+            <svg (click)="updateStatus()" width="24" height="25" viewBox="0 0 24 25" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.75 6.90039C2.75 5.10546 4.20507 3.65039 6 3.65039H18C19.7949 3.65039 21.25 5.10547 21.25 6.90039V18.9004C21.25 20.6953 19.7949 22.1504 18 22.1504H6C4.20507 22.1504 2.75 20.6953 2.75 18.9004V6.90039Z"
+                    fill="#1F74B3" />
+                <path
+                    d="M2.75 6.90039C2.75 5.10546 4.20507 3.65039 6 3.65039H18C19.7949 3.65039 21.25 5.10547 21.25 6.90039V18.9004C21.25 20.6953 19.7949 22.1504 18 22.1504H6C4.20507 22.1504 2.75 20.6953 2.75 18.9004V6.90039Z"
+                    stroke="#1F74B3" stroke-width="1.5" />
+                <path d="M17 9.90039L10.3295 15.9004L7 12.9004" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+          } @else {
+            <svg (click)="updateStatus()" width="24" height="25" viewBox="0 0 24 25" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.75 6.41016C2.75 4.61523 4.20507 3.16016 6 3.16016H18C19.7949 3.16016 21.25 4.61523 21.25 6.41016V18.4102C21.25 20.2051 19.7949 21.6602 18 21.6602H6C4.20507 21.6602 2.75 20.2051 2.75 18.4102V6.41016Z"
+                    fill="white" />
+                <path
+                    d="M2.75 6.41016C2.75 4.61523 4.20507 3.16016 6 3.16016H18C19.7949 3.16016 21.25 4.61523 21.25 6.41016V18.4102C21.25 20.2051 19.7949 21.6602 18 21.6602H6C4.20507 21.6602 2.75 20.2051 2.75 18.4102V6.41016Z"
+                    stroke="#B9BDBF" stroke-width="1.5" />
+            </svg>
+          }
 
-        <div class="label checked">Install dependencies</div>
+        <div class="label" [ngClass]="{'checked' : todo.done}">{{todo.text}}</div>
     </div>
     <div class="end">
         <svg class="svg edit" width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
