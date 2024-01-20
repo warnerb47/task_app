@@ -1,0 +1,36 @@
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .start {
+        display: flex;
+        align-items: center;
+
+        &>*+* {
+            margin-left: 10px;
+        }
+
+        .label {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17.5px;
+            color: var(--dark);
+
+            &.checked {
+                text-decoration-line: line-through;
+            }
+        }
+
+    }
+
+    .end {
+        display: flex;
+        align-items: center;
+
+        &>*+* {
+            margin-left: 10.34px;
+        }
+    }
+
+}

@@ -1,0 +1,14 @@
+.task-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    &>*+*{
+        margin-top: 15px;
+    }
+
+    app-task{
+        width: 100%;
+    }
+    
+}
