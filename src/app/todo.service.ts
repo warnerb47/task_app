@@ -17,7 +17,7 @@ export class TodoService {
   get todos$(): Observable<Todo[]> {
     return this._todos.asObservable()
     .pipe(
-      delay(3000),
+      // delay(3000),
       // map(d => {throw new Error('nasty')})
     );
   }
