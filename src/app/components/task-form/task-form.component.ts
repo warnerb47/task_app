@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-task-form',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './task-form.component.scss'
 })
 export class TaskFormComponent {
+  @ViewChild('label') label!: ElementRef<HTMLInputElement>;
 
+  addTask(text: string): void {
+    console.log(text);
+    this.label.nativeElement.value = '';
+  }
 }

@@ -1,4 +1,4 @@
-<form class="form">
-    <input type="text" placeholder="New task...">
-    <button>Add task</button>
-</form>
+<div class="form">
+    <input type="text" placeholder="New task..." #label>
+    <button (click)="addTask(label.value)">Add task</button>
+</div>
