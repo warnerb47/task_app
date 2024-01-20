@@ -19,6 +19,7 @@ export class TaskListComponent {
     { done: false, text: 'Write Unit test' },
     { done: false, text: 'Deploy app' },
   ];
+
   todos$: Observable<Todo[]> = of(this.todos);
 
   loadTodos(): void {
@@ -29,5 +30,14 @@ export class TaskListComponent {
     return of([]);
   }
 
+  onDeleteTodo(payload: Todo): void {
+    console.log(payload);
+    const data = this.todos;
+    const index = data.findIndex(d => d.text === payload.text);
+    if (index !== -1) {
+        data.splice(index, 1);
+        this.todos = data;
+    }
+  }
 
 }

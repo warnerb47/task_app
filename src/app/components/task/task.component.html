@@ -27,7 +27,7 @@
         <div class="label" [ngClass]="{'checked' : todo.done}">{{todo.text}}</div>
     </div>
     <div class="end">
-        <svg class="svg edit" width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg (click)="updateLabel()" class="svg edit" width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_7_18)">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M14.3708 3.62639C14.7368 3.26035 15.2268 3.04485 15.7439 3.02245C16.2611 3.00005 16.7678 3.17237 17.1641 3.50539L17.2955 3.62639L21.6834 8.01437C22.0492 8.38032 22.2645 8.87007 22.2869 9.38697C22.3093 9.90388 22.1372 10.4104 21.8044 10.8066L21.6834 10.939L11.017 21.6054C10.6736 21.9488 10.2204 22.1604 9.73671 22.2032L9.55469 22.2104H4.14288C3.88556 22.2104 3.63729 22.1154 3.44568 21.9437C3.25407 21.7719 3.1326 21.5355 3.10458 21.2797L3.09837 21.1659V15.7541C3.09849 15.2685 3.26946 14.7984 3.58133 14.4262L3.70543 14.2918L14.3708 3.62639ZM12.5858 8.336L5.16671 15.7551V20.1421H9.55573L16.9749 12.7229L12.5858 8.336ZM15.8331 5.08871L14.0482 6.87368L18.4361 11.2617L20.2211 9.47669L15.8331 5.08871Z"
@@ -39,7 +39,7 @@
                 </clipPath>
             </defs>
         </svg>
-        <svg class="svg delete" width="25" height="26" viewBox="0 0 25 26" fill="none"
+        <svg (click)="deleteTodo()" class="svg delete" width="25" height="26" viewBox="0 0 25 26" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_7_14)">
                 <path

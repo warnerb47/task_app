@@ -1,6 +1,6 @@
 <div class="task-list">
     @for (todo of todos; track todo) {
-        <app-task [todo]="todo" />
+        <app-task [todo]="todo" (onDeleteTodo)="onDeleteTodo($event)" />
     } @empty {
         Empty list
     }
