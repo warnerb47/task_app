@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { TodoService } from '../../todo.service';
 
 @Component({
   selector: 'app-task-form',
@@ -8,10 +9,15 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './task-form.component.scss'
 })
 export class TaskFormComponent {
+
   @ViewChild('label') label!: ElementRef<HTMLInputElement>;
 
+  constructor(private _todoService: TodoService) {}
+
   addTask(text: string): void {
-    console.log(text);
     this.label.nativeElement.value = '';
+    if (text) {
+      this._todoService.addTodo({done: false, text});
+    }
   }
 }

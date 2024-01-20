@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../../core/interfaces/todo';
 import { CommonModule } from '@angular/common';
+import { TodoService } from '../../todo.service';
 
 @Component({
   selector: 'app-task',
@@ -12,8 +13,9 @@ import { CommonModule } from '@angular/common';
 export class TaskComponent {
   
   @Input() todo: Todo = { text: '', done: false};
-  @Output() onDeleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
   
+  constructor(private _todoService: TodoService) {}
+
   updateStatus(): void {
     this.todo.done = !this.todo.done;
   }
@@ -23,6 +25,6 @@ export class TaskComponent {
   }
 
   deleteTodo(): void {
-    this.onDeleteTodo.emit(this.todo);
+    this._todoService.deleteTodo(this.todo);
   }
 }
