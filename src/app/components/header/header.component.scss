@@ -14,12 +14,17 @@ header {
     .clear {
         display: flex;
         align-items: center;
+        cursor: pointer;
 
         .label {
             color: var(--primary);
             line-height: 17.5px;
             font-weight: 600;
             font-size: 14;
+        }
+        .reload {
+            width: 17px;
+            height: 18px;
         }
     }
 
