@@ -8,15 +8,15 @@ form{
         height: 37.29px;
         border-radius: 10.04px;
         outline: none;
-        border: 0.84px solid #1F74B3;
+        border: 0.84px solid var(--primary);
         padding: 14.22px 19.24px 14.22px 19.24px;
-        background-color: #e6f4ff;
+        background-color: var(--primary-light);
 
         &::placeholder {
             font-weight: 400;
             font-size: 12px;
             line-height: 15px;
-            color: #1F74B3;
+            color: var(--primary);
         }
     }
 
@@ -27,8 +27,8 @@ form{
         height: 37.65px;
         border-radius: 10.04px;
         padding: 9.2px 18.4px 9.2px 18.4px;
-        background-color: #1F74B3;
-        color: #FFFFFF;
+        background-color: var(--primary);
+        color: var(--light);
         font-size: 13.38px;
         font-weight: 600;
         line-height: 16.73px;
