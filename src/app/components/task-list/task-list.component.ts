@@ -27,8 +27,4 @@ export class TaskListComponent implements OnInit {
     this.todos$ = this._todoService.todos$;
   }
 
-  onDeleteTodo(payload: Todo): void {
-    this._todoService.deleteTodo(payload);
-  }
-
 }

@@ -49,4 +49,8 @@ export class TodoService {
         this.todos = data;
     }
   }
+
+  clearTodos(): void {
+    this.todos = [];
+  }
 }

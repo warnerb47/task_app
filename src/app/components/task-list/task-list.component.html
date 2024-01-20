@@ -2,7 +2,7 @@
     @if(todos$ | withLoading | async; as obs) {
         @if(obs.data) {
             @for (todo of obs.data; track todo) {
-                <app-task [todo]="todo" (onDeleteTodo)="onDeleteTodo($event)" />
+                <app-task [todo]="todo" />
             } @empty {
                 empty list
             }
