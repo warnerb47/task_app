@@ -24,7 +24,7 @@
             </svg>
           }
 
-        <div class="label" [ngClass]="{'checked' : todo.done}">{{todo.text}}</div>
+        <div class="label" [ngClass]="{'checked' : todo.done}" contenteditable="true">{{todo.text}}</div>
     </div>
     <div class="end">
         <svg (click)="updateLabel()" class="svg edit" width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
