@@ -2,7 +2,7 @@
     @if(todos$ | withLoading | async; as obs) {
         @if(obs.data) {
             @for (todo of obs.data; track todo) {
-                <app-task [todo]="todo" />
+                <app-task [todo]="todo" (onDelete)="deleteTodo($event)"/>
             } @empty {
                 empty list
             }
@@ -14,3 +14,5 @@
         }
     }
 </div>
+
+<app-confirm-dialog [hidden]="hideDialog" (handleDelete)="handleDelete($event)" #dialog/>

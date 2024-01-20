@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Todo } from '../../core/interfaces/todo';
 import { CommonModule } from '@angular/common';
 import { TodoService } from '../../todo.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-task',
@@ -13,8 +14,9 @@ import { TodoService } from '../../todo.service';
 export class TaskComponent {
   
   @Input() todo: Todo = { text: '', done: false};
+  @Output() onDelete: EventEmitter<Todo> = new EventEmitter<Todo>();
   
-  constructor(private _todoService: TodoService) {}
+  constructor() {}
 
   updateStatus(): void {
     this.todo.done = !this.todo.done;
@@ -25,6 +27,6 @@ export class TaskComponent {
   }
 
   deleteTodo(): void {
-    this._todoService.deleteTodo(this.todo);
+    this.onDelete.emit(this.todo);
   }
 }
